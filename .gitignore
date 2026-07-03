@@ -1,0 +1,13 @@
+node_modules/
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+video/out/
+video/capture/*.mp4
+video/capture/*.mp3
+video/capture/*.json
+video/capture/*.png
+!video/capture/curtail-logo.png
+video/capture/tapes/
+video/capture/vo_list.txt
