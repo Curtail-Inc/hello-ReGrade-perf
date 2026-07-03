@@ -1,0 +1,16 @@
+{
+  "fps": 24,
+  "width": 1920,
+  "height": 1080,
+  "beats": [
+    {"id": "cold-open", "clip": "01-cold-open.mp4", "vo": "Meet ReGrade, from Curtail. It catches performance regressions in your API — the slowdowns that pass every test, and only show up under real load."},
+    {"id": "problem", "clip": "02-problem.mp4", "vo": "A functional test checks what your API returns. It can't tell you a response got twice as slow, or that an endpoint falls over the moment real traffic hits it. That's the regression that reaches production. ReGrade catches it by replaying your real traffic under load."},
+    {"id": "setup", "clip": "03-setup.mp4", "vo": "We start two versions of a tiny orders API. Both return the exact same data — byte for byte. The only difference is speed. You record traffic against version one, and stress-replay it against version two."},
+    {"id": "record", "clip": "04-record.mp4", "vo": "The sensor proxies real traffic and captures a baseline — just a handful of requests, run one at a time. The load doesn't come from here. It comes next, from the replay."},
+    {"id": "knobs", "clip": "05-knobs.mp4", "vo": "ReGrade's replay has three knobs that turn a recording into a load test. Repeat piles up samples for statistical confidence. Parallel fires many concurrent sessions — that's the real load. And pacing runs them full speed, or preserves the original timing."},
+    {"id": "stress", "clip": "06-stress.mp4", "vo": "So we replay against version two with five hundred iterations, fifty concurrent sessions, full speed — five thousand requests. And ReGrade reports zero behavioral differences. Every response is identical to the baseline. A functional test would pass right here."},
+    {"id": "analyze", "clip": "07-analyze.mp4", "vo": "But ask ReGrade about performance, and the picture changes completely. Both endpoints are slower. Products is slower on every call. And orders — its ninety-ninth percentile jumped from eleven milliseconds to over five hundred. A ten-times regression, hiding behind byte-identical responses."},
+    {"id": "reveal", "clip": "08-reveal.mp4", "vo": "Here's the part that matters. Replay orders one request at a time, and it looks perfectly fine — no regression at all. It only falls apart under concurrency, because version two added a lock that serializes every request. That's a regression no functional test, and no single-request check, will ever catch. You need the load."},
+    {"id": "outro", "clip": "09-outro.mp4", "vo": "Catch the slowdowns before your users do. Create a free account at curtail dot com — no credit card, no expiration, and free every month for individual use. And run this exact demo yourself at github dot com slash Curtail dash Inc slash hello dash ReGrade dash perf."}
+  ]
+}

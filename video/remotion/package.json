@@ -1,0 +1,23 @@
+{
+  "name": "hello-regrade-video",
+  "private": true,
+  "scripts": {
+    "render": "remotion render Video out/silent.mp4",
+    "test": "vitest run"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.484",
+    "remotion": "4.0.484",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "zod": "3.23.8"
+  },
+  "devDependencies": {
+    "@types/react": "18.3.3",
+    "typescript": "5.5.4",
+    "vitest": "4.1.9"
+  }
+}
