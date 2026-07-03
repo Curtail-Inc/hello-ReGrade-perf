@@ -6,7 +6,10 @@ import {RED} from './theme';
 // `emphatic` marks the payoff climax — bigger entrance overshoot, a breathing pulse, and a stronger glow.
 type HL = {x: number; y: number; w: number; h: number; from: number; to: number; emphatic?: boolean};
 // Coords calibrated to the rendered perf clips (analyze = the p99 regressions, reveal = the load contrast).
-const CONFIG: Record<string, HL[]> = {};
+const CONFIG: Record<string, HL[]> = {
+  analyze: [{x: 90, y: 604, w: 985, h: 52, from: 0.60, to: 1.0, emphatic: true}], // GET /orders/{id} +1091%
+  reveal: [{x: 90, y: 385, w: 1425, h: 52, from: 0.45, to: 1.0, emphatic: true}], // --parallel 50 collapses
+};
 
 export const Highlights: React.FC<{beatId: string; durationInFrames: number}> = ({beatId, durationInFrames}) => {
   const frame = useCurrentFrame();
