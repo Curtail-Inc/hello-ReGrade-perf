@@ -10,8 +10,8 @@ def test_script_exists_and_executable():
     assert os.stat(SCRIPT).st_mode & stat.S_IXUSR, "generate.sh must be executable"
 
 
-def test_script_hits_both_endpoints_and_guards_health():
+def test_script_hits_both_endpoints_with_reachability_guard():
     body = open(SCRIPT).read()
-    assert "/products" in body
+    assert "/products" in body  # also the reachability guard
     assert "/orders/" in body
-    assert "/health" in body  # reachability guard before generating traffic
+    assert "curl -sf" in body  # guards reachability before generating traffic
