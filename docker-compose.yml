@@ -1,0 +1,18 @@
+# ABOUTME: Two versions of the orders API — record against v1 (:8001), replay against v2 (:8002).
+services:
+  v1:
+    build: .
+    container_name: hello-regrade-perf-v1
+    environment:
+      APP_VERSION: v1
+      PORT: "8000"
+    ports:
+      - "8001:8000"
+  v2:
+    build: .
+    container_name: hello-regrade-perf-v2
+    environment:
+      APP_VERSION: v2
+      PORT: "8000"
+    ports:
+      - "8002:8000"
