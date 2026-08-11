@@ -50,3 +50,17 @@ keeping the two in sync, then re-run both steps.
 - The canonical mapping profile is `hello-regrade-demo` (id-mapping on `$.token` +
   a pattern-based `Authorization: Bearer` header transform with a `captures` group).
 - `capture/*` clips, `out/`, and the generated `capture/tapes/` are gitignored.
+
+## Getting the source assets
+
+Clips, music and voiceovers are gitignored, so a fresh clone cannot rebuild the
+video until you fetch them:
+
+```bash
+aws-vault exec curtail -- ./sync-assets.sh pull
+```
+
+They live in `s3://curtail-shares/video-assets/`, which is private — that bucket
+only grants CloudFront access to `public/*`. After re-cutting a clip or
+re-recording a take, push it back with `./sync-assets.sh push`. Neither
+direction deletes, so removing an asset is a deliberate manual step.
