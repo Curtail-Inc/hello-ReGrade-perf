@@ -21,6 +21,6 @@ ffmpeg -y -i capture/voiceover.mp3 -af loudnorm=I=-16:TP=-1.5:LRA=11 \
 
 echo "== 5. mux voiceover (stream-copy video — no re-encode) =="
 ffmpeg -y -i out/silent.mp4 -i capture/voiceover_norm.mp3 \
-  -map 0:v -map 1:a -c:v copy -c:a aac -ac 2 -b:a 192k -shortest \
+  -map 0:v -map 1:a -c:v copy -c:a aac -ac 2 -b:a 192k -shortest -movflags +faststart \
   out/hello-regrade.mp4
 echo "✓ out/hello-regrade.mp4"

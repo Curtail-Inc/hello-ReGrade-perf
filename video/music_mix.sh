@@ -32,6 +32,6 @@ ffmpeg -y -i out/silent.mp4 -i capture/voiceover_norm.mp3 -i capture/music.mp3 \
 [mq][sc]sidechaincompress=threshold=${BED_THRESHOLD}:ratio=${BED_RATIO}:attack=20:release=${BED_RELEASE}[duck];\
 [vo][duck]amix=inputs=2:duration=first:normalize=0[mix];\
 [mix]alimiter=limit=0.97[out]" \
-  -map 0:v -map "[out]" -c:v copy -c:a aac -ac 2 -b:a 192k -shortest \
+  -map 0:v -map "[out]" -c:v copy -c:a aac -ac 2 -b:a 192k -shortest -movflags +faststart \
   out/hello-regrade.mp4
 echo "✓ out/hello-regrade.mp4 (with music bed)"
